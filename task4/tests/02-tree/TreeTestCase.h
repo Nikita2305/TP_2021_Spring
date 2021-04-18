@@ -33,10 +33,11 @@ TEST_F(TreeTestCase, name) {
 
   EXPECT_EQ(GetTree("/tmp/1", false), getTrueTreeWithDirectories());
   EXPECT_EQ(GetTree("/tmp/1", true), getTrueTreeWithoutDirectories());
-  FilterEmptyNodes(GetTree("/tmp/1", false), "/tmp/1");
 
   EXPECT_THROW(GetTree("/tmp/1/2", false), std::invalid_argument);
   EXPECT_THROW(GetTree("/tmp/1/1/1.txt", false), std::invalid_argument);
 
+  boost::filesystem::create_directory("/tmp/1/2");
+  FilterEmptyNodes(GetTree("/tmp/1", false), "/tmp/1");
   deleteDirectory();
 }
