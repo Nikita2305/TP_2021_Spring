@@ -32,9 +32,9 @@ jobs:
         cd ..
         cd ..
     
-    - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-      with:
-        exec-path:  task5/bin/CTestExe
-        report-path: task5/report.xml
-        working-directory: task5
+    # - name: Test
+      # uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      # with:
+        # exec-path:  bin/CTestExe
+        # report-path: report.xml
+        # working-directory: task5
