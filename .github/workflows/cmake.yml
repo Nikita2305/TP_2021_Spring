@@ -1,8 +1,11 @@
+ 
 name: CMake
 
 on:
   push:
     branches: [task5]
+  pull_request:
+    branches: [task5, main]
 
 jobs:
   build:
@@ -26,10 +29,11 @@ jobs:
         cd build
         cmake ..
         make
+        cd ..
     
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
-        working-directory: ${{github.workspace}}/task5/bin/
-        exec-path:  ${{github.workspace}}/task5/bin/CTestExe
-        report-path: ../report.xml
+        working-directory: bin/
+        exec-path:  bin/CTestExe
+        report-path: report.xml
