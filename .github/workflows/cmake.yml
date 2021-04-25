@@ -1,4 +1,3 @@
- 
 name: CMake
 
 on:
@@ -38,3 +37,12 @@ jobs:
         exec-path:  bin/CTestExe
         report-path: report.xml
         working-directory: task5
+        
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Distributive
+        path: | 
+          /home/runner/work/TP_2021_Spring/TP_2021_Spring/task5/bin/ 
+          /home/runner/work/TP_2021_Spring/TP_2021_Spring/task5/lib/ 
+ 
