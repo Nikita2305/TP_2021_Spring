@@ -5,7 +5,7 @@ on:
   push:
     branches: [task5]
   pull_request:
-    branches: [task5, main]
+    branches: [task5, master]
 
 jobs:
   build:
