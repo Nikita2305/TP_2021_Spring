@@ -1,0 +1,27 @@
+name: CMake
+
+on:
+  push:
+    branches: [ task5 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      working-directory: ${{github.workspace}}/task5
+      run: |
+        mkdir 3rdparty
+        cd 3rdparty
+        git clone https://github.com/google/googletest.git
+        mv googletest weird_name
+        mv weird_name/* .
+        rm -r weird_name
+        cd ..
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
