@@ -5,3 +5,7 @@
 #include "WeatherTestCase.h"
 #include "WeatherMock.h"
 
+TEST_F(WeatherTestCase, name) {
+    test1();
+    test2();
+}

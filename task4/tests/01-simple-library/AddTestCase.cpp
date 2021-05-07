@@ -5,3 +5,6 @@
 #include "AddTestCase.h"
 #include "Functions.h"
 
+TEST_F(AddTestCase, name) {
+    test1();
+}

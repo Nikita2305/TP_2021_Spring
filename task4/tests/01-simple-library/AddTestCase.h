@@ -9,12 +9,8 @@
 #include "Functions.h"
 
 class AddTestCase: public ::testing::Test{
- public:
-  void test1() {
-    EXPECT_EQ(Add(1, 1), 2);
-  }
+public:
+    void test1() {
+        EXPECT_EQ(Add(1, 1), 2);
+    }
 };
-
-TEST_F(AddTestCase, name) {
-  test1();
-}
