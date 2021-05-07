@@ -8,10 +8,10 @@
 
 TEST_F(TreeTestCase, name) {
     setupTestSuite();
-    // test1();
-    // test2();
+    test1();
+    test2();
     setupTest3();
-    // test3();    
+    test3();    
     teardownTestSuite();
 }
 
