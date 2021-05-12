@@ -1,0 +1,48 @@
+name: CMake
+
+on:
+  push:
+    branches: [task5]
+  pull_request:
+    branches: [task5, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        cd task5
+        mkdir 3rdparty
+        cd 3rdparty
+        git clone https://github.com/google/googletest.git
+        mv googletest weird_name
+        mv weird_name/* .
+        rm -r weird_name
+        cd ..
+        mkdir build
+        cd build
+        cmake ..
+        make
+        cd ..
+        cd ..
+    
+    - name: Test
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with:
+        exec-path:  bin/CTestExe
+        report-path: report.xml
+        working-directory: task5
+        
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Distributive
+        path: | 
+          /home/runner/work/TP_2021_Spring/TP_2021_Spring/task5/bin/ 
+          /home/runner/work/TP_2021_Spring/TP_2021_Spring/task5/lib/ 
+ 
